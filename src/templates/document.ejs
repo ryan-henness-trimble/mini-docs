@@ -1,28 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-        main {
-            flex: 1;
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-<main>
-    <nav id="sidebar">
-        <%- include('partials/sidenav', { contents: sidenavContents }); %>
-    </nav>
-    <div id="content">
-        <%- content %>
-    </div>
-</main>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+                font-family: 'Open Sans', sans-serif;
+
+                overflow-y: hidden;
+            }
+
+            main {
+                display: flex;
+                flex-direction: row;
+                flex: 1;
+                margin: 0;
+                padding: 0;
+            }
+
+            #sidenav-container {
+                min-width: fit-content;
+                padding: 12px 28px 12px 12px;
+                background-color: rgb(247, 247, 245);
+                color: rgb(145, 145, 142);
+
+                height: 100svh;
+
+                position: sticky;
+                top: 0px;
+            }
+
+            #sidenav ul, #sidenav li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #sidenav ul {
+                padding-left: 1.5em; /* Adjust this value to maintain desired indentation */
+            }
+
+            #sidenav li {
+                padding-left: 1em; /* Adjust this value to maintain desired indentation */
+            }
+
+            #sidenav-container > ul:first-of-type {
+                padding: 0;
+                margin: 0;
+            }
+
+            .nav-link {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                color: rgb(107, 105, 109);
+                text-decoration: none;
+                margin: 4px 0;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                background-color: #3987e3;
+                border-radius: 50%;
+                margin-left: 8px;
+
+                visibility: hidden;
+            }
+
+            .dot.active {
+                visibility: visible;
+            }
+
+            .nav-directory {
+                font-size: 12px;
+                font-weight: 700;
+                color: rgb(165, 160, 165);
+
+                margin: 6px 0;
+            }
+
+            #content-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                width: 100%;
+                overflow-y: auto;
+            }
+
+            #content {
+                min-width: 400px;
+                padding: 48px 15vw;
+                color: rgb(55, 53, 47);
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <nav id="sidenav-container">
+                <%- include('sidenav', { contents: sidenavContents }); %>
+            </nav>
+            <div id="content-container">
+                <div id="content">
+                    <%- content %>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const baseUrl = window.location.origin;
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const relativePath = link.getAttribute('data-path');
+                link.href = `${baseUrl}${relativePath}`;
+
+                if (currentPath.endsWith(relativePath)) {
+                    link.classList.add('active');
+
+                    const dot = link.querySelector('.dot');
+                    if (dot) {
+                        dot.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
 </html>

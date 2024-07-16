@@ -1,0 +1,17 @@
+<ul id="sidenav">
+    <% contents.forEach(item => { %>
+        <% if (item.type === 'directory') { %>
+            <li>
+                <div class="nav-directory"><%= item.name %></div>
+                <%- include('sidenav', { contents: item.contents }) %>
+            </li>
+        <% } else { %>
+            <li>
+                <a class="nav-link" data-path="<%= item.relativePath.replace('.md', '.html') %>">
+                    <%= item.name %>
+                    <div class="dot"></div>
+                </a>
+            </li>
+        <% } %>
+    <% }) %>
+</ul>

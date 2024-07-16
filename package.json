@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && npm run copy-templates && npm run copy-bin && node ./dist/bin/mini-docs-cli.js -i test/test-docs -o test/test-output",
     "build": "tsc",
-    "copy-templates": "copyfiles -u 1 ./src/templates/* dist && copyfiles -u 1 ./src/templates/partials/* dist",
+    "copy-templates": "copyfiles -u 1 ./src/templates/* dist",
     "copy-bin": "copyfiles -f src/bin/mini-docs-cli.js dist/bin"
   },
   "keywords": [
