@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <nav id="sidebar">
+        <%- include('partials/sidenav', { contents: sidenavContents }); %>
+    </nav>
+    <div id="content">
+        <%- content %>
+    </div>
+</main>
+</body>
+</html>
