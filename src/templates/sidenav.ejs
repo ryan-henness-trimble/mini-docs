@@ -7,7 +7,7 @@
             </li>
         <% } else { %>
             <li>
-                <a class="nav-link" data-path="<%= item.relativePath.replace('.md', '.html') %>">
+                <a class="nav-link" data-path="<%= item.relativePath.replace('.md', '.html') %>" rel="prefetch">
                     <%= item.name %>
                     <div class="dot"></div>
                 </a>

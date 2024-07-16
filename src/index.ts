@@ -28,7 +28,7 @@ const DOCUMENT_TEMPLATE_PATH = path.resolve(__dirname, 'templates/document.ejs')
 const generateFileSystemStructure = (rootPath: string, inputPath: string): Directory | File => {
     const stats = fs.statSync(inputPath);
     const fileName = path.basename(inputPath);
-    const name = convertKebabToWords(fileName);
+    const name = convertKebabToWords(fileName).replace(MD_EXTENSION, '');
     const relativePath = `/${path.relative(rootPath, inputPath).replace(/\\/g, '/')}`;
 
     if (stats.isFile()) {
@@ -70,7 +70,7 @@ customRenderer.link = ({ href, title, text }): string => {
 
 const generatePages = async (item: Directory | File, outputPath: string, sidenavContents: Directory): Promise<void> => {
     if (item.type === 'file') {
-        if (item.name.endsWith(MD_EXTENSION)) {
+        if (item.relativePath.endsWith(MD_EXTENSION)) {
             const fileContent = await fs.readFile(item.fullPath, UTF_8);
             const htmlContent = marked(fileContent, { renderer: customRenderer });
             const renderedHtml = await ejs.renderFile(DOCUMENT_TEMPLATE_PATH, {
