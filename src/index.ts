@@ -6,9 +6,13 @@ const Prism = require('prismjs');
 import ejs from 'ejs';
 
 // Load necessary Prism languages
-require('prismjs/components/prism-javascript');
 require('prismjs/components/prism-css');
-require('prismjs/components/prism-python');
+require('prismjs/components/prism-json');
+require('prismjs/components/prism-javascript');
+require('prismjs/components/prism-typescript');
+require('prismjs/components/prism-csharp');
+require('prismjs/components/prism-jsx');
+require('prismjs/components/prism-tsx');
 
 interface File {
     type: 'file';

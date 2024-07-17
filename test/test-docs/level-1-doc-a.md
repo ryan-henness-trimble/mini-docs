@@ -8,8 +8,61 @@ Risus pretium quam vulputate dignissim suspendisse in est. Faucibus pulvinar ele
 
 [Link to Level 1 Doc B](../level-1-doc-b.md)
 
+JavaScript
 ```javascript
 console.log('Hello, World!');
+```
+
+TypeScript
+```typescript
+interface MyInterface {
+  name: string;
+  age: number;
+}
+
+console.log('Hello, World!');
+```
+
+JSON
+```json
+{
+  "name": "John Doe",
+  "age": 30
+}
+```
+
+CSS
+```css
+.class {
+  color: red;
+}
+```
+
+HTML
+```html
+<div>Hello, HTML</div>
+```
+
+C#
+```csharp
+using System;
+const string message = "Hello, World!";
+```
+
+Python
+```python
+print('Hello, World!')
+```
+
+TSX
+```tsx
+import React from 'react';
+
+const App: React.FC = () => {
+  return <div>Hello, TSX!</div>;
+};
+
+export default App;
 ```
 
 ![alt](https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?cs=srgb&dl=pexels-pixabay-417173.jpg&fm=jpg)
