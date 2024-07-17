@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Components</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+                font-family: 'Open Sans', sans-serif;
+
+                overflow-y: hidden;
+            }
+
+            main {
+                display: flex;
+                flex-direction: row;
+                flex: 1;
+                margin: 0;
+                padding: 0;
+            }
+
+            #sidenav-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                min-width: fit-content;
+                padding: 12px 24px;
+                background-color: rgb(247, 247, 245);
+                color: rgb(145, 145, 142);
+
+                height: 100svh;
+
+                position: sticky;
+                top: 0;
+            }
+
+            #sidenav ul, #sidenav li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #sidenav ul {
+                padding-left: 1rem; /* Adjust this value to maintain desired indentation */
+            }
+
+            #sidenav-container > ul:first-of-type {
+                padding: 0;
+                margin: 0;
+            }
+
+            .sidenav-title {
+                display: flex;
+                margin-bottom: 8px;
+                justify-content: center;
+                font-size: 20px;
+            }
+
+            .nav-link {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                color: rgb(107, 105, 109);
+                text-decoration: none;
+                margin: 6px 0;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                background-color: #3987e3;
+                border-radius: 50%;
+                margin-left: 8px;
+
+                visibility: hidden;
+            }
+
+            .dot.active {
+                visibility: visible;
+            }
+
+            .nav-directory {
+                font-size: 12px;
+                font-weight: 700;
+                color: rgb(165, 160, 165);
+
+                margin: 6px 0;
+            }
+
+            #content-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                width: 100%;
+                overflow-y: auto;
+            }
+
+            #content {
+                min-width: 400px;
+                padding: 48px 15vw;
+                color: rgb(55, 53, 47);
+                height: 100%;
+                width: 100%;
+
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <nav id="sidenav-container">
+                <div class="sidenav-title">Mini Docs</div>
+                <ul id="sidenav">
+    
+        
+            <li>
+                <a class="nav-link" data-path="/level-1-doc-a.html" rel="prefetch">
+                    Level 1 Doc A
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+        
+            <li>
+                <a class="nav-link" data-path="/level-1-doc-b.html" rel="prefetch">
+                    Level 1 Doc B
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+        
+            <li>
+                <div class="nav-directory">Level 2</div>
+                <ul id="sidenav">
+    
+        
+            <li>
+                <a class="nav-link" data-path="/level-2/level-2-doc.html" rel="prefetch">
+                    Level 2 Doc
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+        
+            <li>
+                <div class="nav-directory">Level 3</div>
+                <ul id="sidenav">
+    
+        
+            <li>
+                <a class="nav-link" data-path="/level-2/level-3/level-3-doc.html" rel="prefetch">
+                    Level 3 Doc
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+</ul>
+
+            </li>
+        
+    
+</ul>
+
+            </li>
+        
+    
+        
+            <li>
+                <div class="nav-directory">Modus</div>
+                <ul id="sidenav">
+    
+        
+            <li>
+                <a class="nav-link" data-path="/modus/components.html" rel="prefetch">
+                    Components
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+</ul>
+
+            </li>
+        
+    
+</ul>
+
+            </nav>
+            <div id="content-container">
+                <div id="content">
+                    <h1>Modus Components</h1>
+<p>Some content</p>
+
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js" integrity="sha512-pmt3kb6dRndjFXFFwCa3rSzuUQ0GjeCfC5QULWde+8ZBIsUzuP1heOIOSAMfAyXHSufrrTp8h7UHw85K4IJ2/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js" integrity="sha512-QnaSDSqBZBMQgJc0jWB2AAWz+Vd4negxRunKXNzB5zm9vUb0AkDEP2jTFer9GjoIGeKMtRhwroj2AQ8+6+wTHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js" integrity="sha512-uMdVuOpm+9lNPCT7mV/YaMb9YQ/R4+eeON7aEMj6Ig/f4BoU+Q5k6iaZkDsX7LH9cjTHZt0CuKxbzd0/fndrWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" integrity="sha512-3qtI9+9JXi658yli19POddU1RouYtkTEhTHo6X5ilOvMiDfNvo6GIS6k2Ukrsx8MyaKSXeVrnIWeyH8G5EOyIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js" integrity="sha512-uOw7XYETzS/DPmmirpP5UCMihSDNMeyTS965J0/456OSPfxn9xEtHHjj5Q/5WefVdqyMfN/afmQnNpZd/tpkcA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script></body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js" integrity="sha512-m3JYEI6gx5fh9jF10FjGoMzVKcV2N6nchcDcqPCdI1L3R2WQV7br2XVNR8iTLb2daOMRl3zldbcfT40xU2ntVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-tsx.min.js" integrity="sha512-xjGCJ9YxyZBfYTCHsEjkOZMoOse1W3cKMXv1szXrxs68myuXt0YTj3/xKPar6iDMlXzTUSEqwUxprWcyp+plaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const baseUrl = window.location.origin;
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const relativePath = link.getAttribute('data-path');
+                link.href = `${baseUrl}${relativePath}`;
+
+                if (currentPath.endsWith(relativePath)) {
+                    link.classList.add('active');
+
+                    const dot = link.querySelector('.dot');
+                    if (dot) {
+                        dot.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+</html>

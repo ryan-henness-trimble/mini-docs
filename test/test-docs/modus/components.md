@@ -1,3 +1,0 @@
-# Modus Components
-
-Some content

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><%= title %></title>
+        <title>Level 3 Doc</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
@@ -123,11 +123,91 @@
         <main>
             <nav id="sidenav-container">
                 <div class="sidenav-title">Mini Docs</div>
-                <%- include('sidenav', { contents: sidenavContents }); %>
+                <ul id="sidenav">
+    
+        
+            <li>
+                <a class="nav-link" data-path="/level-1-doc-a.html" rel="prefetch">
+                    Level 1 Doc A
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+        
+            <li>
+                <a class="nav-link" data-path="/level-1-doc-b.html" rel="prefetch">
+                    Level 1 Doc B
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+        
+            <li>
+                <div class="nav-directory">Level 2</div>
+                <ul id="sidenav">
+    
+        
+            <li>
+                <a class="nav-link" data-path="/level-2/level-2-doc.html" rel="prefetch">
+                    Level 2 Doc
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+        
+            <li>
+                <div class="nav-directory">Level 3</div>
+                <ul id="sidenav">
+    
+        
+            <li>
+                <a class="nav-link" data-path="/level-2/level-3/level-3-doc.html" rel="prefetch">
+                    Level 3 Doc
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+</ul>
+
+            </li>
+        
+    
+</ul>
+
+            </li>
+        
+    
+        
+            <li>
+                <div class="nav-directory">Modus</div>
+                <ul id="sidenav">
+    
+        
+            <li>
+                <a class="nav-link" data-path="/modus/components.html" rel="prefetch">
+                    Components
+                    <div class="dot"></div>
+                </a>
+            </li>
+        
+    
+</ul>
+
+            </li>
+        
+    
+</ul>
+
             </nav>
             <div id="content-container">
                 <div id="content">
-                    <%- content %>
+                    <h1>Level 3 Doc</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit.</p>
+
                 </div>
             </div>
         </main>
