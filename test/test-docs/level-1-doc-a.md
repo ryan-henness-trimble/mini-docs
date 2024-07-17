@@ -7,3 +7,9 @@ Id faucibus nisl tincidunt eget nullam non nisi est. Consectetur adipiscing elit
 Risus pretium quam vulputate dignissim suspendisse in est. Faucibus pulvinar elementum integer enim neque volutpat ac. Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur. Odio ut enim blandit volutpat. Ultrices gravida dictum fusce ut placerat orci nulla. Turpis egestas integer eget aliquet. Congue nisi vitae suscipit tellus mauris a. Tellus cras adipiscing enim eu. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Aliquet nibh praesent tristique magna sit amet purus. Nisi scelerisque eu ultrices vitae auctor eu augue.
 
 [Link to Level 1 Doc B](../level-1-doc-b.md)
+
+```javascript
+console.log('Hello, World!');
+```
+
+![alt](https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?cs=srgb&dl=pexels-pixabay-417173.jpg&fm=jpg)

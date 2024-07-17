@@ -1,7 +1,14 @@
 const fs = require('fs-extra');
 import path from 'path';
-import { marked, Renderer } from 'marked';
+const { Marked, Renderer } = require('marked');
+const { markedHighlight } = require('marked-highlight');
+const Prism = require('prismjs');
 import ejs from 'ejs';
+
+// Load necessary Prism languages
+require('prismjs/components/prism-javascript');
+require('prismjs/components/prism-css');
+require('prismjs/components/prism-python');
 
 interface File {
     type: 'file';
@@ -60,7 +67,7 @@ const generateFileSystemStructure = (rootPath: string, inputPath: string): Direc
 }
 
 const customRenderer = new Renderer();
-customRenderer.link = ({ href, title, text }): string => {
+customRenderer.link = ({ href, title, text }: any): string => {
     // Replace .md with .html in the href if it ends with .md
     if (href && href.endsWith('.md')) {
         href = href.replace('.md', '.html');
@@ -68,11 +75,25 @@ customRenderer.link = ({ href, title, text }): string => {
     return `<a href="${href}"${title ? ` title="${title}"` : ''}>${text}</a>`;
 };
 
+// Render image at 100% width
+customRenderer.image = ({ href, title, text }: any): string => {
+    return `<img src="${href}" alt="${text}"${title ? ` title="${title}"` : ''} style="width: 100%;" />`;
+};
+
+const marked = new Marked(
+    markedHighlight({
+        highlight: function(code: any, lang: any) {
+            const language = Prism.languages[lang] || Prism.languages.markup;
+            return Prism.highlight(code, language, lang);
+        }
+    })
+);
+
 const generatePages = async (item: Directory | File, outputPath: string, sidenavContents: Directory): Promise<void> => {
     if (item.type === 'file') {
         if (item.relativePath.endsWith(MD_EXTENSION)) {
             const fileContent = await fs.readFile(item.fullPath, UTF_8);
-            const htmlContent = marked(fileContent, { renderer: customRenderer });
+            const htmlContent = marked.parse(fileContent, { renderer: customRenderer });
             const renderedHtml = await ejs.renderFile(DOCUMENT_TEMPLATE_PATH, {
                 content: htmlContent,
                 title: item.name,

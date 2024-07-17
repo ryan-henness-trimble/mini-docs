@@ -22,7 +22,9 @@
     "commander": "^12.1.0",
     "ejs": "^3.1.10",
     "fs-extra": "^11.2.0",
-    "marked": "^13.0.2"
+    "marked": "^13.0.2",
+    "marked-highlight": "^2.1.3",
+    "prismjs": "^1.29.0"
   },
   "bin": {
     "mini-docs": "./dist/bin/mini-docs-cli.js"
