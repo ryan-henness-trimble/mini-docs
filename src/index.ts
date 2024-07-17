@@ -78,18 +78,12 @@ const generatePages = async (item: Directory | File, outputPath: string, sidenav
                 title: item.name,
                 sidenavContents: sidenavContents.contents
             });
-            const outputFilePath = path.join(outputPath, item.fileName.replace(MD_EXTENSION, HTML_EXTENSION));
-            await fs.writeFile(outputFilePath, renderedHtml);
+            const outputFilePath = path.join(outputPath, item.relativePath.replace(MD_EXTENSION, HTML_EXTENSION));
+            await fs.outputFile(outputFilePath, renderedHtml);
         }
     } else if (item.type === 'directory') {
-        const dirPath = path.join(outputPath, item.fileName);
-        try {
-            await fs.mkdir(dirPath, { recursive: true });
-        } catch (err: any) {
-            if (err.code !== 'EEXIST') throw err;
-        }
         for (const content of item.contents) {
-            await generatePages(content, dirPath, sidenavContents);
+            await generatePages(content, outputPath, sidenavContents);
         }
     }
 };
