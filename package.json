@@ -1,0 +1,44 @@
+{
+  "name": "@ryan-henness-trimble/mini-docs",
+  "version": "0.0.0-beta.21",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && npm run copy-files && node ./dist/bin/mini-docs-cli.js -i docs -o static-pages",
+    "build": "tsc",
+    "copy-files": "npm run copy-templates && npm run copy-styles && npm run copy-bin",
+    "copy-templates": "copyfiles -u 1 ./src/templates/* dist",
+    "copy-styles": "copyfiles -f src/templates/styles/* dist/templates/styles",
+    "copy-bin": "copyfiles -f src/bin/mini-docs-cli.js dist/bin"
+  },
+  "keywords": [
+    "mini-docs",
+    "documentation",
+    "cli",
+    "markdown",
+    "static site generator"
+  ],
+  "author": "Ryan Henness",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "ejs": "^3.1.10",
+    "fs-extra": "^11.2.0",
+    "marked": "^13.0.2",
+    "marked-highlight": "^2.1.3",
+    "prismjs": "^1.29.0"
+  },
+  "bin": {
+    "mini-docs": "./dist/bin/mini-docs-cli.js"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/fs-extra": "^11.0.4",
+    "@types/marked": "^6.0.0",
+    "@types/node": "^20.14.10",
+    "copyfiles": "^2.4.1",
+    "prettier": "3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}

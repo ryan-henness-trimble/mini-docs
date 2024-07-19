@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+
+    overflow-y: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+#sidenav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: fit-content;
+    padding: 12px 24px;
+    background-color: rgb(247, 247, 245);
+    color: rgb(145, 145, 142);
+
+    height: 100svh;
+
+    position: sticky;
+    top: 0;
+}
+
+.sidenav-title {
+    display: flex;
+    margin-bottom: 8px;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.sidenav-title:hover {
+    cursor: pointer;
+}
+
+#content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#content {
+    min-width: 400px;
+    padding: 48px 15vw;
+    color: rgb(55, 53, 47);
+    height: 100%;
+    width: 100%;
+
+    box-sizing: border-box;
+}

@@ -1,0 +1,59 @@
+name: Publish CLI Output to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  INPUT_PATH: docs
+  OUTPUT_PATH: static-pages
+  BASE_PATH: /mini-docs
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the package
+        run: npm run build
+
+      - name: Copy files
+        run: npm run copy-files
+
+      - name: Run mini-docs CLI
+        run: node ./dist/bin/mini-docs-cli.js -i ${{ env.INPUT_PATH }} -o ${{ env.OUTPUT_PATH }} -b ${{ env.BASE_PATH }}
+
+      - name: List output files
+        run: |
+          echo "Contents of publish directory:"
+          ls -R ${{ env.OUTPUT_PATH }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.OUTPUT_PATH }}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,47 @@
+#sidenav ul, #sidenav li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#sidenav ul {
+    padding-left: 1rem;
+}
+
+#sidenav-container > ul:first-of-type {
+    padding: 0;
+    margin: 0;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #3987e3;
+    border-radius: 50%;
+    margin-left: 8px;
+
+    visibility: hidden;
+}
+
+.dot.active {
+    visibility: visible;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(107, 105, 109);
+    text-decoration: none;
+    margin: 6px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-directory {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(165, 160, 165);
+
+    margin: 6px 0;
+}
